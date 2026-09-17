@@ -1,11 +1,61 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { site, structuredData } from "./site";
+
+const title = `${site.shortName} · ${site.tagline}`;
+const robots = {
+  index: true,
+  follow: true,
+  "max-image-preview": "large",
+  "max-snippet": -1,
+  "max-video-preview": -1,
+} as const;
 
 export const metadata: Metadata = {
-  title: "Milind Mishra — Product Engineer",
-  description:
-    "Product engineer at Merlin AI by Foyer. 20M+ users reached, 4 talks at React meetups, 5 products taken 0 to 1, shipped across web, extension, desktop, and mobile.",
+  metadataBase: new URL(site.url),
+  title,
+  description: site.description,
+  keywords: [...site.keywords],
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
+  applicationName: site.name,
+  alternates: { canonical: "/" },
+  manifest: "/manifest.webmanifest",
+  robots: { ...robots, googleBot: robots },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48 32x32 16x16" },
+      { url: "/favicon-96.png", type: "image/png", sizes: "96x96" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  openGraph: {
+    type: "website",
+    siteName: site.name,
+    locale: site.locale,
+    title,
+    description: site.description,
+    url: "/",
+    images: [
+      {
+        url: site.image,
+        width: 1200,
+        height: 630,
+        alt: `${site.name}: ${site.tagline}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description: site.description,
+    creator: site.twitter,
+    images: [site.image],
+  },
+  other: { "format-detection": "telephone=no" },
 };
+
+export const viewport: Viewport = { themeColor: site.themeColor };
 
 // cmd/ctrl + d toggles dark mode for the session, never persisted
 const darkModeShortcut = `document.addEventListener("keydown", (e) => {
@@ -20,6 +70,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" className="antialiased lg:h-dvh">
       <body className="font-sans lg:h-full">
         <script dangerouslySetInnerHTML={{ __html: darkModeShortcut }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData()) }}
+        />
         {children}
       </body>
     </html>

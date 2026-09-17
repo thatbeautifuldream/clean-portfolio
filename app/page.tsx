@@ -1,3 +1,5 @@
+import { CopyEmail } from "./copy-email";
+
 const stats = [
   { value: "20M+", label: "users reached" },
   { value: "4 talks", label: "at React meetups" },
@@ -274,8 +276,8 @@ export default function Home() {
             </li>
           ))}
         </ul>
-        <p className="font-mono text-xs text-faint sm:ml-auto">
-          hey@milindmishra.com
+        <p className="font-mono text-xs sm:ml-auto">
+          <CopyEmail />
         </p>
       </footer>
     </main>
