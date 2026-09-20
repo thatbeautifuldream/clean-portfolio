@@ -124,9 +124,10 @@ export default function Home() {
     <main className="isolate mx-auto flex max-w-6xl flex-col gap-y-10 px-6 py-14 sm:gap-y-12 lg:px-10 lg:py-16">
       <header className="flex flex-col gap-y-4 sm:flex-row sm:items-end sm:justify-between sm:gap-x-10">
         <div>
-          <h1 className="text-base font-[600] tracking-[-0.00813rem] sm:text-[0.9375rem]">
+          <h1 className="sr-only">{site.name}</h1>
+          <div className="text-ink">
             <ThemeName />
-          </h1>
+          </div>
           <p className="mt-1 max-w-[56ch] text-base text-pretty text-muted sm:text-sm">
             {`${site.tagline}.`}
           </p>
