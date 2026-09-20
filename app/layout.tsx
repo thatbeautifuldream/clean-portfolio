@@ -1,7 +1,14 @@
 import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { site, structuredData } from "@/utils/site";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  axes: ["opsz"],
+});
 
 const title = `${site.shortName} · ${site.tagline}`;
 const robots = {
@@ -50,7 +57,11 @@ export const viewport: Viewport = { themeColor: site.themeColor };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className="antialiased" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${inter.variable} antialiased`}
+      suppressHydrationWarning
+    >
       <body className="font-sans">
         <script
           type="application/ld+json"

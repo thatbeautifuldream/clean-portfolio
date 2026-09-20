@@ -3,6 +3,7 @@
 import { useTheme } from "next-themes";
 import { useEffect } from "react";
 import { Flyouts, useFlyouts } from "@/components/flyouts";
+import { FullSign } from "@/components/full-sign";
 import { site } from "@/utils/site";
 
 const labels = [
@@ -51,17 +52,17 @@ export function ThemeName() {
         toggle();
         push();
       }}
-      aria-label="Toggle dark mode"
-      className="relative cursor-pointer text-left"
+      aria-label={`${site.shortName} — toggle dark mode`}
+      className="relative origin-left cursor-pointer text-left transition-[color,scale] duration-150 ease-out hover:text-muted active:scale-98 motion-reduce:transition-none"
     >
-      {site.shortName}
+      <FullSign className="h-10 w-auto sm:h-12" />
       <span role="status" className="sr-only">
         {count > 0 && labelAt(count)}
       </span>
       <Flyouts
         flyouts={flyouts}
         setFlyouts={setFlyouts}
-        className="bottom-full left-0 -mb-2 font-mono text-xs tracking-wide text-faint uppercase"
+        className="bottom-full left-0 -mb-2 text-sm text-faint"
       />
     </button>
   );
