@@ -124,7 +124,7 @@ export default function Home() {
         </div>
         <p className="text-base text-muted sm:text-right sm:text-sm">
           {`${site.location.city}, ${site.location.country}`}
-          <span className="block text-ink">Open to interesting problems</span>
+          <span className="block text-ink">Drawn to interesting problems</span>
         </p>
       </header>
 
