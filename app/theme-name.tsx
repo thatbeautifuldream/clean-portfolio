@@ -33,7 +33,7 @@ export function ThemeName() {
       <Flyouts
         flyouts={flyouts}
         setFlyouts={setFlyouts}
-        className="bottom-full left-0 mb-2 font-mono text-xs tracking-wide text-faint uppercase"
+        className="bottom-full left-0 -mb-2 font-mono text-xs tracking-wide text-faint uppercase"
       />
     </button>
   );
