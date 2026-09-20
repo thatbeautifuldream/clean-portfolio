@@ -72,6 +72,33 @@ body {
   letter-spacing: -0.00563rem;
 }
 
+/* benji.org enters each block with a short rise; blocks further down the page
+   share the last delay so the cascade never drags */
+@media (prefers-reduced-motion: no-preference) {
+  .stagger > * {
+    animation: stagger-in 500ms ease both;
+  }
+
+  .stagger > *:nth-child(2) {
+    animation-delay: 50ms;
+  }
+
+  .stagger > *:nth-child(3) {
+    animation-delay: 100ms;
+  }
+
+  .stagger > *:nth-child(n + 4) {
+    animation-delay: 150ms;
+  }
+
+  @keyframes stagger-in {
+    from {
+      opacity: 0;
+      translate: 0 8px;
+    }
+  }
+}
+
 /* hovering one entry in a list recedes its siblings; the rows carry the
    spacing as padding so there is no dead gap to flicker through in between */
 @utility dim-siblings {
@@ -79,7 +106,7 @@ body {
 
   & > * {
     padding-block: 0.5rem;
-    transition: opacity 200ms ease;
+    transition: opacity 140ms ease;
   }
 
   @media (hover: hover) {

@@ -121,7 +121,7 @@ const quietLinkStyle =
 
 export default function Home() {
   return (
-    <main className="isolate mx-auto flex max-w-6xl flex-col gap-y-10 px-6 py-14 sm:gap-y-12 lg:px-10 lg:py-16">
+    <main className="stagger isolate mx-auto flex max-w-6xl flex-col gap-y-10 px-6 py-14 sm:gap-y-12 lg:px-10 lg:py-16">
       <header className="flex flex-col gap-y-4 sm:flex-row sm:items-end sm:justify-between sm:gap-x-10">
         <div>
           <h1 className="sr-only">{site.name}</h1>
