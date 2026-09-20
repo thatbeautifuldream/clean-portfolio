@@ -109,7 +109,10 @@ const links = [
   { label: "Résumé", href: site.resume },
 ];
 
-const eyebrow = "font-mono text-xs tracking-wide uppercase text-faint";
+const eyebrow =
+  "border-b border-ink/10 pb-2 text-base text-faint sm:text-[0.9375rem]";
+const title = "font-[560]";
+const meta = "text-base text-faint sm:text-sm";
 // links inside the content carry the emphasis; footer links stay out of the way
 const linkStyle =
   "text-ink underline decoration-ink/25 underline-offset-[3px] hover:decoration-ink";
@@ -118,13 +121,13 @@ const quietLinkStyle =
 
 export default function Home() {
   return (
-    <main className="isolate mx-auto flex max-w-6xl flex-col gap-y-12 px-6 py-14 sm:gap-y-16 lg:px-10 lg:py-20">
+    <main className="isolate mx-auto flex max-w-6xl flex-col gap-y-10 px-6 py-14 sm:gap-y-12 lg:px-10 lg:py-16">
       <header className="flex flex-col gap-y-4 sm:flex-row sm:items-end sm:justify-between sm:gap-x-10">
         <div>
-          <h1 className="max-w-[24ch] text-5xl tracking-tight text-balance sm:text-6xl">
+          <h1 className="text-base font-[600] tracking-[-0.00813rem] sm:text-[0.9375rem]">
             <ThemeName />
           </h1>
-          <p className="mt-3 max-w-[56ch] text-base text-pretty text-muted sm:text-sm">
+          <p className="mt-1 max-w-[56ch] text-base text-pretty text-muted sm:text-sm">
             {`${site.tagline}.`}
           </p>
         </div>
@@ -134,24 +137,17 @@ export default function Home() {
         </p>
       </header>
 
-      <section className="grid grid-cols-2 border-y border-ink/10 lg:grid-cols-4">
+      <section className="flex flex-col gap-y-2 border-y border-ink/10 py-5 sm:flex-row sm:flex-wrap sm:gap-x-8">
         {stats.map((stat) => (
-          <div
-            key={stat.label}
-            className="border-ink/10 py-7 lg:py-6 nth-[n+3]:border-t nth-[n+3]:pt-7 odd:pr-5 even:border-l even:pl-5 lg:border-t-0 lg:px-6 lg:first:pl-0 lg:last:pr-0 lg:nth-[n+3]:border-t-0 lg:odd:pr-6 lg:even:pl-6 lg:not-nth-[4n+1]:border-l"
-          >
-            <p className="text-3xl tabular-nums tracking-tight sm:text-5xl">
-              {stat.value}
-            </p>
-            <p className="mt-2 text-base text-muted sm:text-sm lg:truncate">
-              {stat.label}
-            </p>
-          </div>
+          <p key={stat.label} className="text-base sm:text-sm">
+            <span className={title}>{stat.value}</span>{" "}
+            <span className="text-muted">{stat.label}</span>
+          </p>
         ))}
       </section>
 
       <div className="grid gap-y-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-14 lg:grid-cols-[3fr_2fr_2fr] lg:gap-x-12">
-        <section className="flex flex-col gap-y-4">
+        <section className="flex flex-col gap-y-3">
           <h2 className={eyebrow}>Work</h2>
           <ul role="list" className="flex flex-col dim-siblings">
             {work.map((item) => (
@@ -159,11 +155,11 @@ export default function Home() {
                 key={item.company}
                 className="flex flex-col gap-y-1 sm:flex-row sm:gap-x-4"
               >
-                <p className="font-mono text-xs tabular-nums text-faint sm:w-[4.5rem] sm:shrink-0 sm:pt-0.5">
+                <p className={`${meta} sm:w-[4.5rem] sm:shrink-0`}>
                   {item.period}
                 </p>
                 <div className="min-w-0">
-                  <p className="text-base font-medium">
+                  <p className={`text-base ${title} sm:text-sm`}>
                     {item.company}
                     <span className="font-normal text-faint">
                       {" · "}
@@ -180,12 +176,14 @@ export default function Home() {
         </section>
 
         <div className="flex flex-col gap-y-8">
-          <section className="flex flex-col gap-y-4">
+          <section className="flex flex-col gap-y-3">
             <h2 className={eyebrow}>Building</h2>
             <ul role="list" className="flex flex-col dim-siblings">
               {building.map((item) => (
                 <li key={item.name} className="flex items-baseline gap-x-4">
-                  <p className="min-w-0 flex-1 truncate text-base font-medium">
+                  <p
+                    className={`min-w-0 flex-1 truncate text-base ${title} sm:text-sm`}
+                  >
                     <a
                       href={item.href}
                       target="_blank"
@@ -195,7 +193,7 @@ export default function Home() {
                       {item.name}
                     </a>
                   </p>
-                  <p className="shrink-0 text-base tabular-nums text-faint sm:text-sm">
+                  <p className="shrink-0 text-base text-faint sm:text-sm">
                     {item.metric}
                   </p>
                 </li>
@@ -224,32 +222,30 @@ export default function Home() {
             </p>
           </section>
 
-          <section className="flex flex-col gap-y-4">
+          <section className="flex flex-col gap-y-3">
             <h2 className={eyebrow}>Education</h2>
             <dl className="flex flex-col dim-siblings">
               {education.map((item) => (
                 <div key={item.school}>
-                  <dt className="text-base font-medium text-pretty">
+                  <dt className={`text-base ${title} text-pretty sm:text-sm`}>
                     {item.school}
                   </dt>
                   <dd className="text-base text-pretty text-muted sm:text-sm">
                     {item.detail}
                   </dd>
-                  <dd className="mt-1 font-mono text-xs text-faint">
-                    {item.meta}
-                  </dd>
+                  <dd className={`mt-1 ${meta}`}>{item.meta}</dd>
                 </div>
               ))}
             </dl>
           </section>
         </div>
 
-        <section className="flex flex-col gap-y-4">
+        <section className="flex flex-col gap-y-3">
           <h2 className={eyebrow}>Speaking</h2>
           <ul role="list" className="flex flex-col dim-siblings">
             {speaking.map((item) => (
               <li key={item.href}>
-                <p className="text-base font-medium text-pretty">
+                <p className={`text-base ${title} text-pretty sm:text-sm`}>
                   <a
                     href={item.href}
                     target="_blank"
@@ -259,7 +255,7 @@ export default function Home() {
                     {item.title}
                   </a>
                 </p>
-                <p className="mt-1 font-mono text-xs text-faint">{item.meta}</p>
+                <p className={`mt-1 ${meta}`}>{item.meta}</p>
               </li>
             ))}
           </ul>
@@ -281,7 +277,7 @@ export default function Home() {
             </li>
           ))}
         </ul>
-        <p className="font-mono text-xs sm:ml-auto">
+        <p className="text-base sm:ml-auto sm:text-sm">
           <CopyEmail />
         </p>
       </footer>
