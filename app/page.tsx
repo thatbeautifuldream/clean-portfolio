@@ -1,6 +1,7 @@
 import { CopyEmail } from "@/components/copy-email";
 import { ThemeName } from "@/components/theme-name";
-import { lastUpdated } from "@/utils/last-updated";
+import { UpdatedStamp } from "@/components/updated-stamp";
+import { lastCommit, lastCommitUrl, lastUpdated } from "@/utils/last-updated";
 import { site } from "@/utils/site";
 
 const stats = [
@@ -109,8 +110,11 @@ const links = [
 ];
 
 const eyebrow = "font-mono text-xs tracking-wide uppercase text-faint";
+// links inside the content carry the emphasis; footer links stay out of the way
 const linkStyle =
   "text-ink underline decoration-ink/25 underline-offset-[3px] hover:decoration-ink";
+const quietLinkStyle =
+  "text-muted underline decoration-muted/25 underline-offset-[3px] hover:text-ink hover:decoration-ink";
 
 export default function Home() {
   return (
@@ -126,7 +130,11 @@ export default function Home() {
         </div>
         <p className="text-base text-muted sm:text-right sm:text-sm">
           {`${site.location.city}, ${site.location.country}`}
-          <span className="block text-faint">{`Updated ${lastUpdated}`}</span>
+          <UpdatedStamp
+            date={lastUpdated}
+            sha={lastCommit}
+            href={lastCommitUrl}
+          />
         </p>
       </header>
 
@@ -136,7 +144,7 @@ export default function Home() {
             key={stat.label}
             className="border-ink/10 py-7 lg:py-6 nth-[n+3]:border-t nth-[n+3]:pt-7 odd:pr-5 even:border-l even:pl-5 lg:border-t-0 lg:px-6 lg:first:pl-0 lg:last:pr-0 lg:nth-[n+3]:border-t-0 lg:odd:pr-6 lg:even:pl-6 lg:not-nth-[4n+1]:border-l"
           >
-            <p className="font-display text-5xl tabular-nums tracking-tight sm:text-6xl">
+            <p className="font-display text-4xl tabular-nums tracking-tight sm:text-5xl">
               {stat.value}
             </p>
             <p className="mt-2 text-base text-muted sm:text-sm lg:truncate">
@@ -156,7 +164,7 @@ export default function Home() {
                   {item.period}
                 </p>
                 <div className="min-w-0">
-                  <p className="text-base font-medium sm:text-sm">
+                  <p className="text-base font-medium">
                     {item.company}
                     <span className="font-normal text-faint">
                       {" · "}
@@ -178,7 +186,7 @@ export default function Home() {
             <ul role="list" className="flex flex-col dim-siblings">
               {building.map((item) => (
                 <li key={item.name} className="flex items-baseline gap-x-4">
-                  <p className="min-w-0 flex-1 truncate text-base font-medium sm:text-sm">
+                  <p className="min-w-0 flex-1 truncate text-base font-medium">
                     <a
                       href={item.href}
                       target="_blank"
@@ -222,7 +230,7 @@ export default function Home() {
             <dl className="flex flex-col dim-siblings">
               {education.map((item) => (
                 <div key={item.school}>
-                  <dt className="text-base font-medium text-pretty sm:text-sm">
+                  <dt className="text-base font-medium text-pretty">
                     {item.school}
                   </dt>
                   <dd className="text-base text-pretty text-muted sm:text-sm">
@@ -242,7 +250,7 @@ export default function Home() {
           <ul role="list" className="flex flex-col dim-siblings">
             {speaking.map((item) => (
               <li key={item.href}>
-                <p className="text-base font-medium text-pretty sm:text-sm">
+                <p className="text-base font-medium text-pretty">
                   <a
                     href={item.href}
                     target="_blank"
@@ -267,7 +275,7 @@ export default function Home() {
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
-                className={linkStyle}
+                className={quietLinkStyle}
               >
                 {link.label}
               </a>

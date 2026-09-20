@@ -24,6 +24,7 @@ export const site = {
     { label: "X", href: "https://x.com/milindmishra_" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/mishramilind/" },
   ],
+  repo: "https://github.com/thatbeautifuldream/clean-portfolio",
   resume:
     "https://cdn.jsdelivr.net/gh/thatbeautifuldream/resume-tex/resume.pdf",
   location: { city: "Bengaluru", region: "Karnataka", country: "India" },
