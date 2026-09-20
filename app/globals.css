@@ -69,3 +69,20 @@ body {
   background-color: var(--color-page);
   color: var(--color-ink);
 }
+
+/* hovering one entry in a list recedes its siblings; the rows carry the
+   spacing as padding so there is no dead gap to flicker through in between */
+@utility dim-siblings {
+  margin-block: -0.5rem;
+
+  & > * {
+    padding-block: 0.5rem;
+    transition: opacity 200ms ease;
+  }
+
+  @media (hover: hover) {
+    &:has(> *:hover) > *:not(:hover) {
+      opacity: 0.35;
+    }
+  }
+}

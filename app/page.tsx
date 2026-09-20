@@ -148,7 +148,7 @@ export default function Home() {
       <div className="grid gap-y-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-14 lg:grid-cols-[3fr_2fr_2fr] lg:gap-x-12">
         <section className="flex flex-col gap-y-4">
           <h2 className={eyebrow}>Work</h2>
-          <ul role="list" className="flex flex-col gap-y-4">
+          <ul role="list" className="flex flex-col dim-siblings">
             {work.map((item) => (
               <li key={item.company} className="flex gap-x-4">
                 <p className="w-[4.5rem] shrink-0 pt-0.5 font-mono text-xs tabular-nums text-faint">
@@ -174,7 +174,7 @@ export default function Home() {
         <div className="flex flex-col gap-y-8">
           <section className="flex flex-col gap-y-4">
             <h2 className={eyebrow}>Building</h2>
-            <ul role="list" className="flex flex-col gap-y-4">
+            <ul role="list" className="flex flex-col dim-siblings">
               {building.map((item) => (
                 <li key={item.name} className="flex items-baseline gap-x-4">
                   <p className="min-w-0 flex-1 truncate text-base font-medium sm:text-sm">
@@ -218,7 +218,7 @@ export default function Home() {
 
           <section className="flex flex-col gap-y-4">
             <h2 className={eyebrow}>Education</h2>
-            <dl className="flex flex-col gap-y-4">
+            <dl className="flex flex-col dim-siblings">
               {education.map((item) => (
                 <div key={item.school}>
                   <dt className="text-base font-medium text-pretty sm:text-sm">
@@ -238,7 +238,7 @@ export default function Home() {
 
         <section className="flex flex-col gap-y-4">
           <h2 className={eyebrow}>Speaking</h2>
-          <ul role="list" className="flex flex-col gap-y-4">
+          <ul role="list" className="flex flex-col dim-siblings">
             {speaking.map((item) => (
               <li key={item.href}>
                 <p className="text-base font-medium text-pretty sm:text-sm">
