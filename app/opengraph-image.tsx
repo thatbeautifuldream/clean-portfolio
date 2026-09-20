@@ -10,8 +10,7 @@ const font = (file: string) =>
     res.arrayBuffer(),
   );
 
-const [serif, sans, sansMedium, mono] = await Promise.all([
-  font("instrument-serif@latest/latin-400-normal"),
+const [sans, sansMedium, mono] = await Promise.all([
   font("inter@latest/latin-400-normal"),
   font("inter@latest/latin-500-normal"),
   font("geist-mono@latest/latin-500-normal"),
@@ -39,12 +38,7 @@ export default function Image() {
       </div>
 
       <div tw="flex flex-col">
-        <div
-          tw="text-[128px] leading-none"
-          style={{ fontFamily: "Instrument Serif" }}
-        >
-          {site.shortName}
-        </div>
+        <div tw="text-[128px] leading-none">{site.shortName}</div>
         <div tw="mt-6 max-w-[900px] text-[34px] leading-tight text-neutral-600">
           {`${site.tagline}.`}
         </div>
@@ -56,12 +50,7 @@ export default function Image() {
             key={stat.label}
             tw={`flex flex-1 flex-col ${i ? "border-l border-neutral-200 pl-6" : ""}`}
           >
-            <div
-              tw="text-[46px] leading-none"
-              style={{ fontFamily: "Instrument Serif" }}
-            >
-              {stat.value}
-            </div>
+            <div tw="text-[46px] leading-none">{stat.value}</div>
             <div tw="mt-2 text-[20px] text-neutral-500">{stat.label}</div>
           </div>
         ))}
@@ -70,7 +59,6 @@ export default function Image() {
     {
       ...size,
       fonts: [
-        { name: "Instrument Serif", data: serif, weight: 400, style: "normal" },
         { name: "Inter", data: sans, weight: 400, style: "normal" },
         { name: "Inter", data: sansMedium, weight: 500, style: "normal" },
         { name: "Geist Mono", data: mono, weight: 500, style: "normal" },

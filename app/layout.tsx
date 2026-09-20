@@ -50,8 +50,8 @@ export const viewport: Viewport = { themeColor: site.themeColor };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className="antialiased lg:h-dvh" suppressHydrationWarning>
-      <body className="font-sans lg:h-full">
+    <html lang="en" className="antialiased" suppressHydrationWarning>
+      <body className="font-sans">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData()) }}

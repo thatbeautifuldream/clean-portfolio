@@ -121,7 +121,7 @@ export default function Home() {
     <main className="isolate mx-auto flex max-w-6xl flex-col justify-center gap-y-12 px-6 py-14 sm:gap-y-14 lg:h-full lg:gap-y-8 lg:px-10 lg:py-10">
       <header className="flex flex-col gap-y-4 sm:flex-row sm:items-end sm:justify-between sm:gap-x-10">
         <div>
-          <h1 className="font-display max-w-[24ch] text-5xl tracking-tight text-balance sm:text-6xl">
+          <h1 className="max-w-[24ch] text-5xl tracking-tight text-balance sm:text-6xl">
             <ThemeName />
           </h1>
           <p className="mt-3 max-w-[56ch] text-base text-pretty text-muted sm:text-sm">
@@ -140,7 +140,7 @@ export default function Home() {
             key={stat.label}
             className="border-ink/10 py-7 lg:py-6 nth-[n+3]:border-t nth-[n+3]:pt-7 odd:pr-5 even:border-l even:pl-5 lg:border-t-0 lg:px-6 lg:first:pl-0 lg:last:pr-0 lg:nth-[n+3]:border-t-0 lg:odd:pr-6 lg:even:pl-6 lg:not-nth-[4n+1]:border-l"
           >
-            <p className="font-display text-4xl tabular-nums tracking-tight sm:text-5xl">
+            <p className="text-4xl tabular-nums tracking-tight sm:text-5xl">
               {stat.value}
             </p>
             <p className="mt-2 text-base text-muted sm:text-sm lg:truncate">
