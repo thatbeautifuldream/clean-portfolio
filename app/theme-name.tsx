@@ -9,12 +9,25 @@ const labels = [
   "You found an easter egg",
   "Lights off, lights on",
   "Still just a light switch",
-  "cmd + D does this too",
 ];
+
+// the shortcut hint only lands on a device that has the keys to press
+function labelsForDevice() {
+  if (
+    typeof window === "undefined" ||
+    window.matchMedia("(pointer: coarse)").matches
+  ) {
+    return labels;
+  }
+
+  const key = navigator.userAgent.includes("Mac") ? "cmd" : "ctrl";
+  return [...labels, `${key} + D does this too`];
+}
 
 export function ThemeName() {
   const { resolvedTheme, setTheme } = useTheme();
-  const { flyouts, count, labelAt, push, setFlyouts } = useFlyouts(labels);
+  const { flyouts, count, labelAt, push, setFlyouts } =
+    useFlyouts(labelsForDevice());
 
   function toggle() {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
