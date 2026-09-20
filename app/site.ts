@@ -4,7 +4,7 @@ export const site = {
   tagline: "Product engineer shipping AI products people use every day",
   description:
     "Product engineer at Merlin AI by Foyer. 20M+ users reached, 4 talks at React meetups, 5 products taken 0 to 1, shipped across web, extension, desktop, and mobile.",
-  url: "https://milindmishra.com",
+  url: "https://milind.fyi",
   locale: "en_US",
   themeColor: "#0a0a0a",
   email: "hey@milindmishra.com",
