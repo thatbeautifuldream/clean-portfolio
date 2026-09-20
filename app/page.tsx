@@ -118,7 +118,7 @@ const quietLinkStyle =
 
 export default function Home() {
   return (
-    <main className="isolate mx-auto flex max-w-6xl flex-col justify-center gap-y-12 px-6 py-14 sm:gap-y-14 lg:h-full lg:gap-y-8 lg:px-10 lg:py-10">
+    <main className="isolate mx-auto flex max-w-6xl flex-col gap-y-12 px-6 py-14 sm:gap-y-16 lg:px-10 lg:py-20">
       <header className="flex flex-col gap-y-4 sm:flex-row sm:items-end sm:justify-between sm:gap-x-10">
         <div>
           <h1 className="max-w-[24ch] text-5xl tracking-tight text-balance sm:text-6xl">
@@ -140,7 +140,7 @@ export default function Home() {
             key={stat.label}
             className="border-ink/10 py-7 lg:py-6 nth-[n+3]:border-t nth-[n+3]:pt-7 odd:pr-5 even:border-l even:pl-5 lg:border-t-0 lg:px-6 lg:first:pl-0 lg:last:pr-0 lg:nth-[n+3]:border-t-0 lg:odd:pr-6 lg:even:pl-6 lg:not-nth-[4n+1]:border-l"
           >
-            <p className="text-4xl tabular-nums tracking-tight sm:text-5xl">
+            <p className="text-3xl tabular-nums tracking-tight sm:text-5xl">
               {stat.value}
             </p>
             <p className="mt-2 text-base text-muted sm:text-sm lg:truncate">
@@ -155,8 +155,11 @@ export default function Home() {
           <h2 className={eyebrow}>Work</h2>
           <ul role="list" className="flex flex-col dim-siblings">
             {work.map((item) => (
-              <li key={item.company} className="flex gap-x-4">
-                <p className="w-[4.5rem] shrink-0 pt-0.5 font-mono text-xs tabular-nums text-faint">
+              <li
+                key={item.company}
+                className="flex flex-col gap-y-1 sm:flex-row sm:gap-x-4"
+              >
+                <p className="font-mono text-xs tabular-nums text-faint sm:w-[4.5rem] sm:shrink-0 sm:pt-0.5">
                   {item.period}
                 </p>
                 <div className="min-w-0">
