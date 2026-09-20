@@ -1,29 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { flushSync } from "react-dom";
+import { useRef } from "react";
 
-export function UpdatedStamp({
-  date,
-  sha,
-  href,
-}: {
-  date: string;
-  sha: string;
-  href: string;
-}) {
-  const [open, setOpen] = useState(false);
-  const [linkWidth, setLinkWidth] = useState(0);
-  const textRef = useRef<HTMLButtonElement>(null);
-  const linkRef = useRef<HTMLAnchorElement>(null);
+export function UpdatedStamp({ date, sha }: { date: string; sha: string }) {
+  const ref = useRef<HTMLButtonElement>(null);
+  const showingSha = useRef(false);
 
-  useEffect(() => {
-    if (linkRef.current) setLinkWidth(linkRef.current.offsetWidth);
-  }, []);
-
-  // the text swaps first, then the new label slides left as the link widens in
   const swap = () => {
-    const el = textRef.current;
+    const el = ref.current;
     if (!el) return;
 
     const dur =
@@ -33,9 +17,12 @@ export function UpdatedStamp({
         ),
       ) || 150;
 
+    showingSha.current = !showingSha.current;
+    const next = showingSha.current ? `Commit ${sha}` : `Updated ${date}`;
+
     el.classList.add("is-exit");
     setTimeout(() => {
-      flushSync(() => setOpen((value) => !value));
+      el.textContent = next;
       el.classList.remove("is-exit");
       el.classList.add("is-enter-start");
       void el.offsetHeight; // force reflow so the next change transitions
@@ -44,32 +31,15 @@ export function UpdatedStamp({
   };
 
   return (
-    <span className="flex items-baseline sm:justify-end">
+    <span className="block">
       <button
-        ref={textRef}
+        ref={ref}
         type="button"
         onClick={swap}
-        aria-expanded={open}
-        className="t-text-swap cursor-pointer whitespace-nowrap text-faint hover:text-ink"
+        className="t-text-swap cursor-pointer text-faint hover:text-ink"
       >
-        {open ? `Commit ${sha}` : `Updated ${date}`}
+        {`Updated ${date}`}
       </button>
-      <span
-        className="t-resize inline-block overflow-hidden"
-        style={{ width: open ? linkWidth : 0 }}
-      >
-        <a
-          ref={linkRef}
-          href={href}
-          target="_blank"
-          rel="noreferrer"
-          tabIndex={open ? undefined : -1}
-          aria-hidden={!open}
-          className="inline-block pl-2 whitespace-nowrap text-faint underline decoration-faint/25 underline-offset-[3px] hover:text-ink hover:decoration-ink"
-        >
-          GitHub ↗
-        </a>
-      </span>
     </span>
   );
 }

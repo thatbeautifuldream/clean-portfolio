@@ -1,7 +1,7 @@
 import { CopyEmail } from "@/components/copy-email";
 import { ThemeName } from "@/components/theme-name";
 import { UpdatedStamp } from "@/components/updated-stamp";
-import { lastCommit, lastCommitUrl, lastUpdated } from "@/utils/last-updated";
+import { lastCommit, lastUpdated } from "@/utils/last-updated";
 import { site } from "@/utils/site";
 
 const stats = [
@@ -130,11 +130,7 @@ export default function Home() {
         </div>
         <p className="text-base text-muted sm:text-right sm:text-sm">
           {`${site.location.city}, ${site.location.country}`}
-          <UpdatedStamp
-            date={lastUpdated}
-            sha={lastCommit}
-            href={lastCommitUrl}
-          />
+          <UpdatedStamp date={lastUpdated} sha={lastCommit} />
         </p>
       </header>
 
