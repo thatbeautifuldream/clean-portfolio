@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { site, structuredData } from "./site";
 
@@ -47,24 +48,22 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = { themeColor: site.themeColor };
 
-// cmd/ctrl + d toggles dark mode for the session, never persisted
-const darkModeShortcut = `document.addEventListener("keydown", (e) => {
-  if (e.key !== "d" || !(e.metaKey || e.ctrlKey)) return;
-  e.preventDefault();
-  const root = document.documentElement;
-  root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
-})`;
-
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className="antialiased lg:h-dvh">
+    <html lang="en" className="antialiased lg:h-dvh" suppressHydrationWarning>
       <body className="font-sans lg:h-full">
-        <script dangerouslySetInnerHTML={{ __html: darkModeShortcut }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData()) }}
         />
-        {children}
+        <ThemeProvider
+          attribute="data-theme"
+          defaultTheme="light"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

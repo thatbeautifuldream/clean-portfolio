@@ -1,5 +1,7 @@
 "use client";
 
+import { useTheme } from "next-themes";
+import { useEffect } from "react";
 import { Flyouts, useFlyouts } from "./flyouts";
 import { site } from "./site";
 
@@ -11,18 +13,31 @@ const labels = [
 ];
 
 export function ThemeName() {
+  const { resolvedTheme, setTheme } = useTheme();
   const { flyouts, count, labelAt, push, setFlyouts } = useFlyouts(labels);
 
   function toggle() {
-    const root = document.documentElement;
-    root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
-    push();
+    setTheme(resolvedTheme === "dark" ? "light" : "dark");
   }
+
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key !== "d" || !(event.metaKey || event.ctrlKey)) return;
+      event.preventDefault();
+      toggle();
+    }
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  });
 
   return (
     <button
       type="button"
-      onClick={toggle}
+      onClick={() => {
+        toggle();
+        push();
+      }}
       aria-label="Toggle dark mode"
       className="relative cursor-pointer text-left"
     >
