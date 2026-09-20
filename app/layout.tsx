@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
-import { site, structuredData } from "./site";
+import { site, structuredData } from "@/utils/site";
 
 const title = `${site.shortName} · ${site.tagline}`;
 const robots = {

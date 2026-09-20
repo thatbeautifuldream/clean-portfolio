@@ -2,8 +2,8 @@
 
 import { useTheme } from "next-themes";
 import { useEffect } from "react";
-import { Flyouts, useFlyouts } from "./flyouts";
-import { site } from "./site";
+import { Flyouts, useFlyouts } from "@/components/flyouts";
+import { site } from "@/utils/site";
 
 const labels = [
   "You found an easter egg",

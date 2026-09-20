@@ -1,7 +1,7 @@
 "use client";
 
-import { Flyouts, useFlyouts } from "./flyouts";
-import { site } from "./site";
+import { Flyouts, useFlyouts } from "@/components/flyouts";
+import { site } from "@/utils/site";
 
 // escalates with the click count; the last one holds for anyone still going
 const labels = [

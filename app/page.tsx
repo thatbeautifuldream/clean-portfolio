@@ -1,6 +1,7 @@
-import { CopyEmail } from "./copy-email";
-import { site } from "./site";
-import { ThemeName } from "./theme-name";
+import { CopyEmail } from "@/components/copy-email";
+import { ThemeName } from "@/components/theme-name";
+import { lastUpdated } from "@/utils/last-updated";
+import { site } from "@/utils/site";
 
 const stats = [
   { value: "20M+", label: "users reached" },
@@ -125,7 +126,7 @@ export default function Home() {
         </div>
         <p className="text-base text-muted sm:text-right sm:text-sm">
           {`${site.location.city}, ${site.location.country}`}
-          <span className="block text-ink">Drawn to interesting problems</span>
+          <span className="block text-faint">{`Updated ${lastUpdated}`}</span>
         </p>
       </header>
 
