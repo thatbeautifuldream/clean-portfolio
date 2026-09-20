@@ -1,4 +1,5 @@
 import { CopyEmail } from "./copy-email";
+import { site } from "./site";
 
 const stats = [
   { value: "20M+", label: "users reached" },
@@ -100,14 +101,9 @@ const education = [
 ];
 
 const links = [
-  { label: "Email", href: "mailto:hey@milindmishra.com" },
-  { label: "GitHub", href: "https://github.com/thatbeautifuldream" },
-  { label: "X", href: "https://x.com/milindmishra_" },
-  { label: "LinkedIn", href: "https://linkedin.com/in/mishramilind" },
-  {
-    label: "Résumé",
-    href: "https://cdn.jsdelivr.net/gh/thatbeautifuldream/resume-tex/resume.pdf",
-  },
+  { label: "Email", href: `mailto:${site.email}` },
+  ...site.profiles,
+  { label: "Résumé", href: site.resume },
 ];
 
 const eyebrow = "font-mono text-xs tracking-wide uppercase text-faint";
@@ -120,14 +116,14 @@ export default function Home() {
       <header className="flex flex-col gap-y-4 sm:flex-row sm:items-end sm:justify-between sm:gap-x-10">
         <div>
           <h1 className="font-display max-w-[24ch] text-5xl tracking-tight text-balance sm:text-6xl">
-            Milind Mishra
+            {site.shortName}
           </h1>
           <p className="mt-3 max-w-[56ch] text-base text-pretty text-muted sm:text-sm">
-            Product engineer shipping AI products people use every day.
+            {`${site.tagline}.`}
           </p>
         </div>
         <p className="text-base text-muted sm:text-right sm:text-sm">
-          Bengaluru, India
+          {`${site.location.city}, ${site.location.country}`}
           <span className="block text-ink">Open to interesting problems</span>
         </p>
       </header>

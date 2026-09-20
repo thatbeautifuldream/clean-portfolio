@@ -9,7 +9,7 @@ export const site = {
   themeColor: "#0a0a0a",
   email: "hey@milindmishra.com",
   twitter: "@milindmishra_",
-  image: "/og.png",
+  image: "/opengraph-image",
   keywords: [
     "product engineer",
     "design engineer",
@@ -19,11 +19,13 @@ export const site = {
     "motion design",
     "Milind Mishra",
   ],
-  sameAs: [
-    "https://github.com/thatbeautifuldream",
-    "https://www.linkedin.com/in/mishramilind/",
-    "https://x.com/milindmishra_",
+  profiles: [
+    { label: "GitHub", href: "https://github.com/thatbeautifuldream" },
+    { label: "X", href: "https://x.com/milindmishra_" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/mishramilind/" },
   ],
+  resume:
+    "https://cdn.jsdelivr.net/gh/thatbeautifuldream/resume-tex/resume.pdf",
   location: { city: "Bengaluru", region: "Karnataka", country: "India" },
   currentRole: {
     title: "Product Engineer",
@@ -87,7 +89,7 @@ export function structuredData() {
           name: site.currentRole.company,
           url: site.currentRole.url,
         },
-        sameAs: [...site.sameAs],
+        sameAs: site.profiles.map((profile) => profile.href),
       },
       {
         "@type": "WebSite",

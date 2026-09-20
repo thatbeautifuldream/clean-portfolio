@@ -20,7 +20,6 @@ export const metadata: Metadata = {
   creator: site.name,
   applicationName: site.name,
   alternates: { canonical: "/" },
-  manifest: "/manifest.webmanifest",
   robots: { ...robots, googleBot: robots },
   icons: {
     icon: [
@@ -36,21 +35,12 @@ export const metadata: Metadata = {
     title,
     description: site.description,
     url: "/",
-    images: [
-      {
-        url: site.image,
-        width: 1200,
-        height: 630,
-        alt: `${site.name}: ${site.tagline}`,
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description: site.description,
     creator: site.twitter,
-    images: [site.image],
   },
   other: { "format-detection": "telephone=no" },
 };
