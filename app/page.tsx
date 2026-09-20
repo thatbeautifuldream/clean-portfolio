@@ -1,5 +1,6 @@
 import { CopyEmail } from "./copy-email";
 import { site } from "./site";
+import { ThemeName } from "./theme-name";
 
 const stats = [
   { value: "20M+", label: "users reached" },
@@ -116,7 +117,7 @@ export default function Home() {
       <header className="flex flex-col gap-y-4 sm:flex-row sm:items-end sm:justify-between sm:gap-x-10">
         <div>
           <h1 className="font-display max-w-[24ch] text-5xl tracking-tight text-balance sm:text-6xl">
-            {site.shortName}
+            <ThemeName />
           </h1>
           <p className="mt-3 max-w-[56ch] text-base text-pretty text-muted sm:text-sm">
             {`${site.tagline}.`}
