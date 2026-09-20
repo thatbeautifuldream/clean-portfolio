@@ -7,7 +7,7 @@ import { site } from "@/utils/site";
 const stats = [
   { value: "20M+", label: "users reached" },
   { value: "4 talks", label: "at React meetups" },
-  { value: "5 products", label: "0 → 1" },
+  { value: "5 products", label: "0 to 1" },
   { value: "4 platforms", label: "web, extension, desktop, mobile" },
 ];
 
