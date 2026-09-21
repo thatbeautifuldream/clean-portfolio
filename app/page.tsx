@@ -269,8 +269,10 @@ export default function Home() {
             <li key={link.label} className="text-base font-normal sm:text-sm">
               <a
                 href={link.href}
-                target="_blank"
-                rel="noreferrer"
+                {...(!link.href.startsWith("/") && {
+                  target: "_blank",
+                  rel: "noreferrer",
+                })}
                 className={quietLinkStyle}
               >
                 {link.label}

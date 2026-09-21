@@ -58,6 +58,22 @@
   --color-faint: rgba(255, 255, 255, 0.42);
 }
 
+/* paper is always light, whatever theme was on screen */
+@media print {
+  :root,
+  [data-theme="dark"] {
+    color-scheme: light;
+    --color-page: #ffffff;
+    --color-ink: #111111;
+    --color-muted: rgba(0, 0, 0, 0.72);
+    --color-faint: rgba(0, 0, 0, 0.5);
+  }
+
+  @page {
+    margin: 0.5in;
+  }
+}
+
 html {
   color-scheme: light;
   font-optical-sizing: auto;
@@ -75,7 +91,7 @@ body {
 /* benji.org enters each block with a short rise; blocks further down the page
    share the last delay so the cascade never drags */
 @media (prefers-reduced-motion: no-preference) {
-  .stagger > * {
+  .stagger > :not(nav) {
     animation: stagger-in 500ms ease both;
   }
 

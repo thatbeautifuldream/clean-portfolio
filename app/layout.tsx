@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
+import { ThemeShortcut } from "@/components/theme-name";
 import { site, structuredData } from "@/utils/site";
 
 const inter = Inter({
@@ -73,6 +74,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           enableSystem={false}
           disableTransitionOnChange
         >
+          <ThemeShortcut />
           {children}
         </ThemeProvider>
       </body>

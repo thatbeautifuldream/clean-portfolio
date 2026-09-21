@@ -24,8 +24,7 @@ export const site = {
     { label: "X", href: "https://x.com/milindmishra_" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/mishramilind/" },
   ],
-  resume:
-    "https://cdn.jsdelivr.net/gh/thatbeautifuldream/resume-tex/resume.pdf",
+  resume: "/resume",
   location: { city: "Bengaluru", region: "Karnataka", country: "India" },
   currentRole: {
     title: "Product Engineer",

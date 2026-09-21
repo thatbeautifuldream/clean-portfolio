@@ -30,26 +30,11 @@ export function ThemeName() {
   const { flyouts, count, labelAt, push, setFlyouts } =
     useFlyouts(labelsForDevice());
 
-  function toggle() {
-    setTheme(resolvedTheme === "dark" ? "light" : "dark");
-  }
-
-  useEffect(() => {
-    function onKeyDown(event: KeyboardEvent) {
-      if (event.key !== "d" || !(event.metaKey || event.ctrlKey)) return;
-      event.preventDefault();
-      toggle();
-    }
-
-    document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
-  });
-
   return (
     <button
       type="button"
       onClick={() => {
-        toggle();
+        setTheme(resolvedTheme === "dark" ? "light" : "dark");
         push();
       }}
       aria-label={`${site.shortName} — toggle dark mode`}
@@ -66,4 +51,21 @@ export function ThemeName() {
       />
     </button>
   );
+}
+
+export function ThemeShortcut() {
+  const { resolvedTheme, setTheme } = useTheme();
+
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key !== "d" || !(event.metaKey || event.ctrlKey)) return;
+      event.preventDefault();
+      setTheme(resolvedTheme === "dark" ? "light" : "dark");
+    }
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  });
+
+  return null;
 }
