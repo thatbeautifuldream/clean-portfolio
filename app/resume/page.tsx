@@ -232,17 +232,29 @@ export default function Resume() {
 
       <section className="flex flex-col gap-y-3 print:gap-y-2">
         <h2 className={eyebrow}>Skills</h2>
-        <dl className="flex flex-col gap-y-2 print:gap-y-1">
-          {skills.map((skill) => (
-            <div
-              key={skill.group}
-              className="flex flex-col sm:flex-row sm:gap-x-2"
-            >
-              <dt className={`${body} ${title} shrink-0`}>{skill.group}</dt>
-              <dd className={`${body} min-w-0 text-muted`}>{skill.items}</dd>
-            </div>
-          ))}
-        </dl>
+        <table className="w-full">
+          <thead className="sr-only">
+            <tr>
+              <th scope="col">Area</th>
+              <th scope="col">Tools</th>
+            </tr>
+          </thead>
+          <tbody>
+            {skills.map((skill) => (
+              <tr key={skill.group}>
+                <th
+                  scope="row"
+                  className={`${body} ${title} py-1 pr-6 text-left align-top whitespace-nowrap print:py-0.5`}
+                >
+                  {skill.group}
+                </th>
+                <td className={`${body} py-1 text-muted print:py-0.5`}>
+                  {skill.items}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </section>
 
       <section className="flex flex-col gap-y-3 break-inside-avoid print:gap-y-2">
