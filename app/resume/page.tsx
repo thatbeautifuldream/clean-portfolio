@@ -47,63 +47,96 @@ const experience = [
   {
     company: "Merlin AI by Foyer",
     href: "https://www.getmerlin.in/chat",
-    role: "Product Engineer",
-    period: "Feb 2025 – Present",
     location: "Bengaluru, India",
-    points: [
-      "Shipped the Merlin AI chat platform across 130+ tagged releases, delivering ChatGPT chat imports, projects and sharing, a chat history command palette, and an auto-routing model selector.",
-      "Took ownership of the Merlin iOS and Android app on Expo SDK 57 and React Native, shipping streaming chat with branching threads, voice dictation, image and video generation, and native SwiftUI and Jetpack Compose menus via Expo UI.",
-      "Built Merlin Agent, an Electron and React desktop coding agent, from zero to v1.0 in 5 weeks with streaming chain-of-thought tool calls, an approval gate for privileged actions, and Composio MCP integrations.",
-      "Took ownership of the Merlin Chrome side-panel agent on WXT and React through v8, shipping a shadow-DOM agent overlay, pilot-mode approval gates, Composio MCP tools, and in-page YouTube and blog summarizers.",
-      "Owned monetization across React surfaces and Node API endpoints, delivering Stripe guest checkout, coupon-tier and regional pricing, top-ups, team seats, and Churnkey plan-change flows.",
-      "Led a design-system revamp, migrated the chat renderer to Streamdown and the marketing site to Next.js 15 and React 19, and reviewed 250+ teammate pull requests while codifying frontend conventions.",
+    positions: [
+      {
+        role: "Mobile Engineer",
+        period: "Oct 2026 – Present",
+        points: [
+          "Lead engineering initiatives for Merlin's iOS and Android app, owning the Expo SDK 57 and React Native product from v7.0.0 onward.",
+          "Built core AI workflows including streaming chat, Projects, Vault, chat references, rich media and Crafts, with native SwiftUI and Jetpack Compose surfaces through Expo UI.",
+          "Delivered mobile monetization end to end with RevenueCat paywalls, credit top-ups, subscription management and legacy-plan handling.",
+          "Raised production quality with a typed design system, 28-language localization, phone and tablet layouts, Firebase Crashlytics, Performance and App Check, plus automated TestFlight, Firebase and Play release pipelines.",
+          "Shipped cross-stack features across the mobile app and backend services, including native sponsored content and lifetime-plan support.",
+        ],
+      },
+      {
+        role: "Product Engineer",
+        period: "Feb 2025 – Present",
+        points: [
+          "Ship product experiences across Merlin's web platform, desktop agent, Chrome side-panel agent and backend services, with 760+ merged PRs across 12 Foyer repositories.",
+          "Built Merlin Agent, an Electron and React desktop coding agent, from zero to v1.0 in five weeks with streamed reasoning and tool calls, approval gates for privileged actions, MCP integrations and voice workflows.",
+          "Lead the Merlin Chrome side-panel agent through v8, delivering a Shadow DOM overlay, pilot-mode approvals, connected tools and in-page YouTube and blog summarization.",
+          "Delivered core web experiences including ChatGPT imports, Projects and sharing, command-palette chat history, auto-routing model selection, and image and video generation flows.",
+          "Own monetization across product surfaces and backend services, including Stripe guest checkout, regional and coupon pricing, credit top-ups, team seats and subscription-change flows.",
+          "Led the design-system revamp, moved chat rendering to Streamdown, and helped migrate the marketing platform to Next.js 15 and React 19.",
+          "Built Thine's product and marketing experiences, including high-performance image-sequence storytelling, invite and waitlist flows, analytics and shareable quiz results.",
+          "Reviewed 250+ teammate pull requests and codified engineering conventions that improved consistency, release safety and agent-assisted development.",
+        ],
+      },
     ],
   },
   {
     company: "SARAL",
     href: "https://www.getsaral.com/",
-    role: "Software Engineer",
-    period: "Dec 2024 – Feb 2025",
     location: "Bengaluru, India",
-    points: [
-      "Revamped internal analytics dashboards with React, TypeScript, and reusable UI patterns, giving growth and operations teams clearer visibility into customer workflows and campaign metrics.",
-      "Built creator content submission and approval workflows, reducing manual coordination across operations, creators, and internal review teams during influencer campaigns.",
+    positions: [
+      {
+        role: "Software Engineer",
+        period: "Dec 2024 – Feb 2025",
+        points: [
+          "Revamped internal analytics dashboards with React, TypeScript, and reusable UI patterns, giving growth and operations teams clearer visibility into customer workflows and campaign metrics.",
+          "Built creator content submission and approval workflows, reducing manual coordination across operations, creators, and internal review teams during influencer campaigns.",
+        ],
+      },
     ],
   },
   {
     company: "Proof-of-Skill Protocol",
     href: "https://www.proofofskill.org/",
-    role: "Founding Product Engineer",
-    period: "Jun 2024 – Dec 2024",
     location: "Bengaluru, India",
-    points: [
-      "Built the frontend for a 3-sided assessment marketplace across validators, candidates, and recruiters, turning ambiguous 0-to-1 product requirements into launch-ready workflows.",
-      "Designed consensus-driven validation, assessment, and review experiences with clear UX states, scalable interaction patterns, and trust-focused decision flows.",
-      "Built real-time recording, proctoring, API integrations, and candidate integrity workflows to support reliable remote skill assessment and evaluation.",
+    positions: [
+      {
+        role: "Founding Product Engineer",
+        period: "Jun 2024 – Dec 2024",
+        points: [
+          "Built the frontend for a 3-sided assessment marketplace across validators, candidates, and recruiters, turning ambiguous 0-to-1 product requirements into launch-ready workflows.",
+          "Designed consensus-driven validation, assessment, and review experiences with clear UX states, scalable interaction patterns, and trust-focused decision flows.",
+          "Built real-time recording, proctoring, API integrations, and candidate integrity workflows to support reliable remote skill assessment and evaluation.",
+        ],
+      },
     ],
   },
   {
     company: "StartupHire",
     href: "https://www.linkedin.com/company/startuphire/",
-    role: "Frontend Engineer, Lead",
-    period: "Aug 2023 – Jan 2024",
     location: "Remote",
-    points: [
-      "Led frontend delivery for a recruiting workflow SaaS platform, improving candidate pipeline management, hiring operations, and recruiter productivity.",
-      "Integrated multiple job boards and application sources into a unified recruiter dashboard, centralizing candidate intake, workflows, and pipeline visibility.",
-      "Shipped recruiting automation and GenAI-powered product features from planning to release, supporting recruiter screening, outreach, and pipeline management workflows.",
+    positions: [
+      {
+        role: "Frontend Engineer, Lead",
+        period: "Aug 2023 – Jan 2024",
+        points: [
+          "Led frontend delivery for a recruiting workflow SaaS platform, improving candidate pipeline management, hiring operations, and recruiter productivity.",
+          "Integrated multiple job boards and application sources into a unified recruiter dashboard, centralizing candidate intake, workflows, and pipeline visibility.",
+          "Shipped recruiting automation and GenAI-powered product features from planning to release, supporting recruiter screening, outreach, and pipeline management workflows.",
+        ],
+      },
     ],
   },
   {
     company: "Locus Connect · NYCU",
     href: "https://www.linkedin.com/company/locus-connect/",
-    role: "Frontend Engineer",
-    period: "Jul 2022 – Jul 2023",
     location: "Hsinchu, Taiwan",
-    points: [
-      "Developed real-time 3D indoor maps with React, Three.js, and GSAP, rendering live IoT telemetry through state management and rendering optimizations for a 3D indoor positioning platform.",
-      "Improved indoor positioning accuracy from 20 cm to under 10 cm through HDOP optimization, telemetry analysis, and iterative calibration.",
-      "Managed production infrastructure with Docker, NGINX, load balancers, and networking configurations to keep real-time visualization environments stable.",
+    positions: [
+      {
+        role: "Frontend Engineer",
+        period: "Jul 2022 – Jul 2023",
+        points: [
+          "Developed real-time 3D indoor maps with React, Three.js, and GSAP, rendering live IoT telemetry through state management and rendering optimizations for a 3D indoor positioning platform.",
+          "Improved indoor positioning accuracy from 20 cm to under 10 cm through HDOP optimization, telemetry analysis, and iterative calibration.",
+          "Managed production infrastructure with Docker, NGINX, load balancers, and networking configurations to keep real-time visualization environments stable.",
+        ],
+      },
     ],
   },
 ];
@@ -187,37 +220,57 @@ export default function Resume() {
       <section className="flex flex-col gap-y-3 print:gap-y-2">
         <h2 className={eyebrow}>Experience</h2>
         <ol role="list" className="flex flex-col gap-y-8 print:gap-y-3.5">
-          {experience.map((job) => (
-            <li key={job.company} className="not-first:break-inside-avoid">
-              <div className="flex flex-col break-after-avoid sm:flex-row sm:items-baseline sm:justify-between sm:gap-x-6">
-                <p className={`${body} ${title} min-w-0`}>
-                  <a
-                    href={job.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={linkStyle}
+          {experience.map((job) => {
+            const several = job.positions.length > 1;
+
+            return (
+              <li
+                key={job.company}
+                className={`flex flex-col not-first:break-inside-avoid ${several ? "gap-y-5 print:gap-y-3" : ""}`}
+              >
+                <div className="flex flex-col break-after-avoid sm:flex-row sm:items-baseline sm:justify-between sm:gap-x-6">
+                  <p className={`${body} ${title} min-w-0`}>
+                    <a
+                      href={job.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={linkStyle}
+                    >
+                      {job.company}
+                    </a>
+                  </p>
+                  <p className={`${meta} shrink-0`}>{job.location}</p>
+                </div>
+                {job.positions.map((position) => (
+                  <div
+                    key={position.role}
+                    className="flex flex-col gap-y-2 print:gap-y-1"
                   >
-                    {job.company}
-                  </a>
-                </p>
-                <p className={`${meta} shrink-0`}>{job.location}</p>
-              </div>
-              <div className="flex flex-col break-after-avoid sm:flex-row sm:items-baseline sm:justify-between sm:gap-x-6">
-                <p className={`${meta} min-w-0`}>{job.role}</p>
-                <p className={`${meta} shrink-0 tabular-nums`}>{job.period}</p>
-              </div>
-              <ul className="mt-2 flex list-disc flex-col gap-y-1.5 pl-4 marker:text-faint print:mt-1 print:gap-y-0.5">
-                {job.points.map((point) => (
-                  <li
-                    key={point}
-                    className={`${body} break-inside-avoid text-muted`}
-                  >
-                    {point}
-                  </li>
+                    <div className="flex flex-col break-after-avoid sm:flex-row sm:items-baseline sm:justify-between sm:gap-x-6">
+                      <p
+                        className={`${body} min-w-0 ${several ? title : "text-faint"}`}
+                      >
+                        {position.role}
+                      </p>
+                      <p className={`${meta} shrink-0 tabular-nums`}>
+                        {position.period}
+                      </p>
+                    </div>
+                    <ul className="flex list-disc flex-col gap-y-1.5 pl-4 marker:text-faint print:gap-y-0.5">
+                      {position.points.map((point) => (
+                        <li
+                          key={point}
+                          className={`${body} break-inside-avoid text-muted`}
+                        >
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 ))}
-              </ul>
-            </li>
-          ))}
+              </li>
+            );
+          })}
         </ol>
       </section>
 

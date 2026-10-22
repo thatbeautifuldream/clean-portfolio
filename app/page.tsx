@@ -14,9 +14,9 @@ const stats = [
 const work = [
   {
     company: "Merlin AI by Foyer",
-    role: "Product Engineer",
+    role: "Mobile Engineer",
     period: "2025 —",
-    note: "130+ releases. Mostly the web app, then the Chrome extension rewrite that is probably my best work, the Electron agent shipped in 2 weeks, the React Native app I am on now, and Stripe monetization.",
+    note: "The iOS and Android app, alongside the web platform, Chrome side panel, and desktop agent.",
   },
   {
     company: "SARAL",
