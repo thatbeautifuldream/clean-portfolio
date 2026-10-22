@@ -48,7 +48,6 @@ const experience = [
     company: "Merlin AI by Foyer",
     href: "https://www.getmerlin.in/chat",
     role: "Product Engineer",
-    domain: "AI SaaS",
     period: "Feb 2025 – Present",
     location: "Bengaluru, India",
     points: [
@@ -64,7 +63,6 @@ const experience = [
     company: "SARAL",
     href: "https://www.getsaral.com/",
     role: "Software Engineer",
-    domain: "Influencer management",
     period: "Dec 2024 – Feb 2025",
     location: "Bengaluru, India",
     points: [
@@ -76,7 +74,6 @@ const experience = [
     company: "Proof-of-Skill Protocol",
     href: "https://www.proofofskill.org/",
     role: "Founding Product Engineer",
-    domain: "Candidate assessment and recruitment software",
     period: "Jun 2024 – Dec 2024",
     location: "Bengaluru, India",
     points: [
@@ -89,7 +86,6 @@ const experience = [
     company: "StartupHire",
     href: "https://www.linkedin.com/company/startuphire/",
     role: "Frontend Engineer, Lead",
-    domain: "AI recruitment software",
     period: "Aug 2023 – Jan 2024",
     location: "Remote",
     points: [
@@ -102,7 +98,6 @@ const experience = [
     company: "Locus Connect · NYCU",
     href: "https://www.linkedin.com/company/locus-connect/",
     role: "Frontend Engineer",
-    domain: "Real-time location SaaS",
     period: "Jul 2022 – Jul 2023",
     location: "Hsinchu, Taiwan",
     points: [
@@ -204,10 +199,6 @@ export default function Resume() {
                   >
                     {job.company}
                   </a>
-                  <span className="font-normal text-faint">
-                    {" · "}
-                    {job.domain}
-                  </span>
                 </p>
                 <p className={`${meta} shrink-0`}>{job.location}</p>
               </div>
