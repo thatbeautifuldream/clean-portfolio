@@ -1,14 +1,27 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { ThemeShortcut } from "@/components/theme-name";
 import { site, structuredData } from "@/utils/site";
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: [
+    {
+      path: "../public/fonts/inter-variable-latin.woff2",
+      weight: "100 900",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/inter-variable-italic-latin.woff2",
+      weight: "100 900",
+      style: "italic",
+    },
+  ],
   variable: "--font-inter",
-  axes: ["opsz"],
+  display: "swap",
+  adjustFontFallback: false,
+  fallback: ["InterMetricFallback"],
 });
 
 const title = `${site.shortName} · ${site.tagline}`;

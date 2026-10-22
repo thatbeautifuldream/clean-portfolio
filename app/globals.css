@@ -4,10 +4,15 @@
 
 @theme inline {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-sans--font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss03";
+  --font-sans--font-feature-settings:
+    "cv02", "cv03", "cv04", "cv11", "ss01", "ss03";
 }
 
 @theme {
+  --font-weight-medium: 500;
+  --font-weight-semibold: 560;
+  --font-weight-bold: 600;
+
   --color-page: #fdfdfc;
   --color-ink: #111111;
   --color-muted: rgba(0, 0, 0, 0.65);
@@ -76,7 +81,33 @@
 
 html {
   color-scheme: light;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01", "ss03";
   font-optical-sizing: auto;
+  font-synthesis: none;
+}
+
+/* Arial, sized to Inter's metrics, so text doesn't jump when the face arrives */
+@font-face {
+  font-family: "InterMetricFallback";
+  src: local("Arial");
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: italic;
+  size-adjust: 107.7766%;
+  ascent-override: 89.885%;
+  descent-override: 22.3806%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "InterMetricFallback";
+  src: local("Arial");
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: normal;
+  size-adjust: 107.7766%;
+  ascent-override: 89.885%;
+  descent-override: 22.3806%;
+  line-gap-override: 0%;
 }
 
 /* benji.org sets its body text in a fractional Inter weight with a touch of
