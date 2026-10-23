@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { ThemeProvider } from "next-themes";
 import "./globals.css";
-import { ThemeShortcut } from "@/components/theme-name";
 import { site, structuredData } from "@/utils/site";
 
 const inter = localFont({
@@ -24,7 +22,7 @@ const inter = localFont({
   fallback: ["InterMetricFallback"],
 });
 
-const title = `${site.shortName} · ${site.tagline}`;
+const title = site.name;
 const robots = {
   index: true,
   follow: true,
@@ -71,25 +69,13 @@ export const viewport: Viewport = { themeColor: site.themeColor };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} antialiased`}
-      suppressHydrationWarning
-    >
+    <html lang="en" className={`${inter.variable} antialiased`}>
       <body className="font-sans">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData()) }}
         />
-        <ThemeProvider
-          attribute="data-theme"
-          defaultTheme="light"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          <ThemeShortcut />
-          {children}
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );

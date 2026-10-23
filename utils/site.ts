@@ -1,7 +1,6 @@
 export const site = {
   name: "Milind Kumar Mishra",
   shortName: "Milind Mishra",
-  tagline: "Product engineer shipping AI products people use every day",
   description:
     "Product engineer at Merlin AI by Foyer. 20M+ users reached, 4 talks at React meetups, 5 products taken 0 to 1, shipped across web, extension, desktop, and mobile.",
   url: "https://milind.fyi",
@@ -24,7 +23,6 @@ export const site = {
     { label: "X", href: "https://x.com/milindmishra_" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/mishramilind/" },
   ],
-  resume: "/resume",
   location: { city: "Bengaluru", region: "Karnataka", country: "India" },
   currentRole: {
     title: "Product Engineer",
