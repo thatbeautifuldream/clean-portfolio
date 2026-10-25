@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 import { ThemeShortcut } from "@/components/theme-shortcut";
 import "./globals.css";
 import { site, structuredData } from "@/utils/site";
@@ -83,6 +84,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData()) }}
         />
         {children}
+        <Analytics />
       </body>
     </html>
   );
