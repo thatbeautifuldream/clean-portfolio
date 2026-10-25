@@ -169,7 +169,15 @@ export default function Resume() {
               {`${site.currentRole.title} · ${site.location.city}, ${site.location.country}`}
             </p>
           </div>
-          <p className="shrink-0 text-base sm:text-sm print:hidden">
+          <p className="flex shrink-0 gap-x-4 text-base sm:text-sm print:hidden">
+            <a
+              href="/pdf"
+              download
+              className="text-faint hover:text-ink"
+              aria-label="Download resume as PDF"
+            >
+              PDF
+            </a>
             <PrintButton className="cursor-pointer text-faint hover:text-ink" />
           </p>
         </div>
@@ -203,7 +211,7 @@ export default function Resume() {
                 key={job.company}
                 className={`flex flex-col not-first:break-inside-avoid ${several ? "gap-y-5 print:gap-y-3" : ""}`}
               >
-                <div className="flex flex-col break-after-avoid sm:flex-row sm:items-baseline sm:justify-between sm:gap-x-6">
+                <div className="print-split flex flex-col break-after-avoid sm:flex-row sm:items-baseline sm:justify-between sm:gap-x-6">
                   <p className={`${body} ${title} min-w-0`}>
                     <a
                       href={job.href}
@@ -221,7 +229,7 @@ export default function Resume() {
                     key={position.role}
                     className="flex flex-col gap-y-2 print:gap-y-1"
                   >
-                    <div className="flex flex-col break-after-avoid sm:flex-row sm:items-baseline sm:justify-between sm:gap-x-6">
+                    <div className="print-split flex flex-col break-after-avoid sm:flex-row sm:items-baseline sm:justify-between sm:gap-x-6">
                       <p
                         className={`${body} min-w-0 ${several ? title : "text-faint"}`}
                       >
@@ -281,11 +289,11 @@ export default function Resume() {
         <ul role="list" className="flex flex-col gap-y-4 print:gap-y-2">
           {education.map((item) => (
             <li key={item.school}>
-              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-x-6">
+              <div className="print-split flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-x-6">
                 <p className={`${body} ${title} min-w-0`}>{item.school}</p>
                 <p className={`${meta} shrink-0`}>{item.location}</p>
               </div>
-              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-x-6">
+              <div className="print-split flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-x-6">
                 <p className={`${body} min-w-0 text-muted`}>{item.detail}</p>
                 <p className={`${meta} shrink-0 tabular-nums`}>{item.period}</p>
               </div>

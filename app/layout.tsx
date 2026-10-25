@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import { ThemeShortcut } from "@/components/theme-shortcut";
 import "./globals.css";
 import { site, structuredData } from "@/utils/site";
 
@@ -69,8 +70,14 @@ export const viewport: Viewport = { themeColor: site.themeColor };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.variable} antialiased`}>
+    <html lang="en" className={`${inter.variable} antialiased`} suppressHydrationWarning>
       <body className="font-sans">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try { document.documentElement.classList.toggle("dark", localStorage.getItem("theme") === "dark"); } catch {}`,
+          }}
+        />
+        <ThemeShortcut />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData()) }}

@@ -17,6 +17,16 @@
   --color-faint: rgba(0, 0, 0, 0.4);
 }
 
+@media screen {
+  html.dark {
+    color-scheme: dark;
+    --color-page: #111111;
+    --color-ink: #fdfdfc;
+    --color-muted: rgba(255, 255, 255, 0.65);
+    --color-faint: rgba(255, 255, 255, 0.4);
+  }
+}
+
 @media print {
   :root {
     color-scheme: light;
@@ -24,6 +34,15 @@
     --color-ink: #111111;
     --color-muted: rgba(0, 0, 0, 0.72);
     --color-faint: rgba(0, 0, 0, 0.5);
+  }
+
+  /* Phone screens stack these rows. Print always uses the desktop line:
+     label on the left, date or place on the right. */
+  .print-split {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    column-gap: --spacing(6);
   }
 
   @page {

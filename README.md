@@ -1,5 +1,32 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## PDF download
+
+`pnpm build` builds Next.js, then runs `scripts/generate-pdf.mjs`. The script
+briefly starts the production app on a local port, renders `/` with its print
+styles, and writes `public/resume.pdf`. Build failure includes PDF generation
+failure, so a successful deployment always has a PDF matching its homepage.
+
+`/pdf` serves that static file with a download filename of
+`milind-mishra-resume.pdf`. No browser or PDF generation runs at request time.
+The file is generated once per build/deployment and excluded from git. Normal
+static-file ETag revalidation prevents browsers from keeping an old deployment's
+PDF. Use `pnpm build` as the deployment build command (not `next build` directly).
+
+Chromium and Puppeteer are build-only dev dependencies. Linux builders use bundled
+`@sparticuz/chromium`; on macOS/Windows install Google Chrome, or set
+`PUPPETEER_EXECUTABLE_PATH` to a compatible Chrome/Chromium executable. The override
+also works on Linux builders with system Chrome.
+
+After a build, `pnpm pdf:generate` regenerates only the PDF from that build. During
+`pnpm dev`, `/pdf` serves the last generated PDF; run `pnpm build` to refresh it.
+
+Husky runs `pnpm build` before every commit, regenerating the PDF and blocking the
+commit if the build or PDF generation fails. `pnpm install` installs the hooks
+through the `prepare` script. The PDF stays out of git and is also regenerated
+by deployment builds. The hook renders the current working tree, including any
+unstaged changes.
+
 ## Getting Started
 
 First, run the development server:
