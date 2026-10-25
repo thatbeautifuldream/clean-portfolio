@@ -1,4 +1,3 @@
-import { PrintButton } from "@/components/print-button";
 import { site } from "@/utils/site";
 
 const contact = [
@@ -169,17 +168,27 @@ export default function Resume() {
               {`${site.currentRole.title} · ${site.location.city}, ${site.location.country}`}
             </p>
           </div>
-          <p className="flex shrink-0 gap-x-4 text-base sm:text-sm print:hidden">
-            <a
-              href="/pdf"
-              download
-              className="text-faint hover:text-ink"
-              aria-label="Download resume as PDF"
+          <a
+            href="/pdf"
+            download
+            className="flex size-8 shrink-0 items-center justify-center rounded text-faint hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 print:hidden"
+            aria-label="Download resume as PDF"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
             >
-              PDF
-            </a>
-            <PrintButton className="cursor-pointer text-faint hover:text-ink" />
-          </p>
+              <path d="M12 3v12m-5-5 5 5 5-5M5 16v4a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-4" />
+            </svg>
+          </a>
         </div>
         <ul
           role="list"
